@@ -1,0 +1,54 @@
+import React from 'react';
+import { View, StyleSheet, Text, Image } from 'react-native';
+
+const SplashScreen = () => {
+    return (
+        <View style={styles.container}>
+            <View style={styles.textContainer}>
+                <Text style={styles.customFont}>Kicker</Text>
+                <Text style={styles.slogan}>World’s biggest collection of kicks.</Text>
+            </View>
+            <View style={styles.imageContainer}>
+                <Image source={require('../../assets/images/splash_banner.png')} style={styles.banner} />
+            </View>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    textContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 150
+    },
+    imageContainer: {
+        width: '100%',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        position: 'absolute',
+    },
+    customFont: {
+        fontFamily: 'Actonia_PERSONAL',
+        fontSize: 120,
+        color: '#EB3C3C'
+    },
+    slogan: {
+        color: '#979797',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    banner: {
+        width: 510,
+        height: 370,
+        top: 475,
+        right: '14%'
+    }
+})
+
+export default SplashScreen;
