@@ -2,6 +2,7 @@ import { SafeAreaView, ScrollViewBase, StatusBar, StyleSheet, Text, View } from 
 import React from 'react'
 import HomeScreen from './src/Screens/HomeScreen'
 import SplashScreen from './src/Screens/SplashScreen'
+import LoginScreen from './src/Screens/LoginScreen'
 
 export default function App() {
   return (
@@ -13,8 +14,9 @@ export default function App() {
         showHideTransition='fade'
         hidden={false}
       />
-      <HomeScreen/>
-      {/* <SplashScreen/> */}
+      {/* <HomeScreen/> */}
+      <SplashScreen/>
+      {/* <LoginScreen/> */}
     </SafeAreaView>
   )
 }

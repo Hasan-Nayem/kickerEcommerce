@@ -1,7 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text, Image, Dimensions } from 'react-native';
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 const SplashScreen = () => {
+    const { width, height } = Dimensions.get('window');
+    const headerFont = width / 2;
+    console.log(headerFont)
     return (
         <View style={styles.container}>
             <View style={styles.textContainer}>
@@ -35,7 +39,7 @@ const styles = StyleSheet.create({
     },
     customFont: {
         fontFamily: 'Actonia_PERSONAL',
-        fontSize: 120,
+        fontSize: RFPercentage(12),
         color: '#EB3C3C'
     },
     slogan: {
