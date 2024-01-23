@@ -9,21 +9,21 @@ export default function App() {
     <SafeAreaView style={styles.layout}>
       <StatusBar
         animated={true}
-        backgroundColor="#E5E5E5"
+        backgroundColor="#eb3c3c08"
         barStyle='dark-content'
         showHideTransition='fade'
         hidden={false}
       />
       {/* <HomeScreen/> */}
-      <SplashScreen/>
-      {/* <LoginScreen/> */}
+      {/* <SplashScreen/> */}
+      <LoginScreen/>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   layout: {
-    backgroundColor: '#E5E5E5',
+    backgroundColor: '#eb3c3c08',
     height: '100%',
     width: '100%',
   }
