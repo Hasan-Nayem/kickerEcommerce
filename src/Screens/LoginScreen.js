@@ -1,16 +1,31 @@
-import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity, KeyboardAvoidingView, ScrollView, Keyboard } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { RFPercentage } from "react-native-responsive-fontsize";
 
 const LoginScreen = () => {
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
+  const [isHide, setHide] = useState(false);
   const handleLogin = () => {
     console.log('Login')
   }
   const handleSignUp = () => {
     console.log('Signup pressed')
   }
+  useEffect(()=> {
+    const detectKeyboard = Keyboard.addListener('keyboardDidShow', ()=> {
+      console.log('keyboard showed');
+      setHide(true);
+    });
+    const detectHideKeyboard = Keyboard.addListener('keyboardDidHide', ()=> {
+      console.log('keyboard hidden');
+      setHide(false);
+    });
+    return () => {
+      detectKeyboard.remove();
+      detectHideKeyboard.remove();
+    }
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.headContainer}>
@@ -21,7 +36,9 @@ const LoginScreen = () => {
         <TextInput style={emailFocused ? styles.onfocusStyle : styles.onBlurStyle} placeholder='Email Address' onFocus={() => setEmailFocused(true)} onBlur={() => setEmailFocused(false)} />
         <TextInput style={passwordFocused ? styles.onfocusStyle : styles.onBlurStyle} placeholder='Password' onFocus={() => setPasswordFocused(true)} onBlur={() => setPasswordFocused(false)} />
       </View>
+
       <View style={styles.socialIconContainer}>
+
         <TouchableOpacity>
           <View style={styles.facebook}>
             <Image style={styles.icon} source={require('../../assets/images/facebook.png')} />
@@ -31,14 +48,14 @@ const LoginScreen = () => {
 
         <TouchableOpacity>
           <View style={styles.gmail}>
-            <Image style={styles.gmailIcon} source={require('../../assets/images/google.png')} />
+            <Image style={styles.icon} source={require('../../assets/images/google_(2).png')} />
             <Text style={styles.gmailText}>Continue with Google</Text>
           </View>
         </TouchableOpacity>
       </View>
 
       {
-        emailFocused || passwordFocused ?
+        isHide ?
           '' : <View style={styles.signUpContainer}>
           <Text style={styles.signup} onPress={handleSignUp}>Sign Up</Text>
           <TouchableOpacity style={styles.letsgo} onPress={handleLogin}>
@@ -119,24 +136,22 @@ const styles = StyleSheet.create({
   icon: {
     width: 22,
     height: 22,
-    marginEnd: 60
+    marginHorizontal: RFPercentage(2)
   },
-  gmailIcon: {
-    width: 20,
-    height: 20,
-    marginEnd: 60
-  },
+  // gmailIcon: {
+  //   width: 20,
+  //   height: 20,
+  //   marginEnd: 60
+  // },
   facebookText: {
     color: 'white',
     fontSize: RFPercentage(2),
     fontFamily: 'DMSans-Bold',
-    marginEnd: 60
   },
   gmailText: {
     color: '#EB3C3C',
     fontSize: RFPercentage(2),
     fontFamily: 'DMSans-Bold',
-    marginEnd: 80
   },
   signUpContainer: {
     marginTop: 20,
@@ -165,6 +180,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row'
-  }
+  },
+
 })
 export default LoginScreen
