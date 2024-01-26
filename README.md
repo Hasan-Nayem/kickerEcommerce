@@ -3,7 +3,7 @@
 
 
 # Kicker
-**An Ecommerce Mobile Application**
+**An E-commerce Mobile Application**
 
 ![Caution ](https://img.shields.io/badge/Caution-This%20project%20is%20still%20being%20developed-green?labelColor=red&style=flat)
 
@@ -12,12 +12,7 @@ An Ecommerce platform for selling exciting Kicks!
 
 ## Tech Stack
 
-**Client:** React.js, React router DOM, Tanstack Query (react query), React hook form, React helmet, SweetAlert, Fireabase, Bootstrap. 
-
-**Server:** Node, Express, Dotenv, Rest API.
-
-**Database:** MongoDB.
-
+**App:**  React Native (CLI), React Navigation, React Native Responsive Font 
 
 ## Run Locally
 
@@ -67,7 +62,9 @@ Run in IOS
 ![App Screenshot](https://i.ibb.co/fFrMNkv/Screenshot-14.png)
 
 
+
+
 ## 🔗 Links
 
-Live Link - ---
+Apk Download Link - https://drive.google.com/drive/folders/12ydRfm2CFfxEVwWGBFzMqAWU52Nkhq4t?usp=sharing
 
