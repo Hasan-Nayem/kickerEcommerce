@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, StyleSheet, Text, Image, Dimensions } from 'react-native';
 import { RFPercentage } from "react-native-responsive-fontsize";
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation }) => {
     const { width, height } = Dimensions.get('window');
     const headerFont = width / 2;
     console.log(headerFont)
+    useEffect(()=> {
+        setTimeout(() => {
+            navigation.navigate('DrawerNavigator')
+        }, 300);
+    }, []);
     return (
         <View style={styles.container}>
             <View style={styles.textContainer}>

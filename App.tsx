@@ -1,8 +1,7 @@
 import { SafeAreaView, ScrollViewBase, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import HomeScreen from './src/Screens/HomeScreen'
-import SplashScreen from './src/Screens/SplashScreen'
-import LoginScreen from './src/Screens/LoginScreen'
+import { NavigationContainer } from '@react-navigation/native'
+import StackNavigator from './src/Navigation/StackNavigator'
 
 export default function App() {
   return (
@@ -14,9 +13,9 @@ export default function App() {
         showHideTransition='fade'
         hidden={false}
       />
-      {/* <HomeScreen/> */}
-      {/* <SplashScreen/> */}
-      <LoginScreen/>
+      <NavigationContainer>
+        <StackNavigator/>
+      </NavigationContainer>
     </SafeAreaView>
   )
 }
